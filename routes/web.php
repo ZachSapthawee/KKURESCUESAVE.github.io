@@ -11,10 +11,27 @@
 |
 */
 
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
 Route::get('/', function () {
-    return view('welcome');
+    return view('pages.index');
+});
+
+Route::get('/index', function () {
+    return view('pages.index');
+});
+Route::get('/show', function () {
+    return view('user.show');
 });
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+
+// Route::get('/test', 'PersoanlController@index')->name('home');
+
+Route::get('createT','SelectFacultyController@index');
+Route::get('create','PersonalController@index');
+Route::resource('/user','PersonalController');
+Route::post('/create/fetch','SelectFacultyController@fetch')->name('create.fetch');

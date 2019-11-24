@@ -15,35 +15,36 @@
                     @endif -->
 
                     <h2>ข้อมูลผู้ป่วย</h2>
-                    <form action="#">
+                    <form action="{{url('/user')}}" method="POST">
+                        {{csrf_field()}}
                         <div class="form-group row">
                             <label for="inputfristname" class="col-sm-3 col-form-label">ชื่อ</label>
                             <div class="col-sm-5">
-                                <input type="text" class="form-control" id="inputfristname" placeholder="ชื่อ">
+                                <input type="text" name="fristname" class="form-control" id="fristname" placeholder="ชื่อ">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="inputlastname" class="col-sm-3 col-form-label">นามสกุล</label>
                             <div class="col-sm-5">
-                                <input type="text" class="form-control" id="inputlastname" placeholder="นามสกุล">
+                                <input type="text" name="lastname" class="form-control" id="lastname" placeholder="นามสกุล">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="inputnickname" class="col-sm-3 col-form-label">ชื่อเล่น</label>
                             <div class="col-sm-5">
-                                <input type="text" class="form-control" id="inputnickname" placeholder="ชื่อเล่น">
+                                <input type="text" name="nickname" class="form-control" id="nickname" placeholder="ชื่อเล่น">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="inputage" class="col-sm-3 col-form-label">อายุ</label>
                             <div class="col-sm-2">
-                                <input type="text" class="form-control" id="inputage" placeholder="อายุ">
+                                <input type="text" name="age" class="form-control" id="age" placeholder="อายุ">
                             </div>
                         </div>
                         <div class="form-group row">
                                 <label for="FormControlSelectgender" class="col-sm-1 col-form-label">เพศ</label>
                                 <div class="col-sm">
-                                    <select class="col-sm-3 form-control" id="FormControlSelectgender">
+                                    <select class="col-sm-3 form-control" name="gender" id="FormControlSelectgender">
                                         <option>ชาย</option>
                                         <option>หญิง</option>
                                     </select>
@@ -52,51 +53,48 @@
                         <div class="form-group row">
                             <label for="inputidcard" class="col-sm-3 col-form-label">เลขบัตรประชาชน</label>
                             <div class="col-sm-5">
-                                <input type="text" class="form-control" id="inputidcard" placeholder="เลขบัตรประชาชน">
+                                <input type="text" name="idcard" class="form-control" id="inputidcard" placeholder="เลขบัตรประชาชน">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="inputweight" class="col-sm-3 col-form-label">น้ำหนัก</label>
                             <div class="col-sm-2">
-                                <input type="text" class="form-control" id="inputweight" placeholder="น้ำหนัก">
+                                <input type="text" name="weight" class="form-control" id="inputweight" placeholder="น้ำหนัก">
                             </div>
                             <label for="inputheight" class="col-sm-1 col-form-label">ส่วนสูง</label>
                             <div class="col-sm-2">
-                                <input type="text" class="form-control" id="inputheight" placeholder="ส่วนสูง">
+                                <input type="text" name="height" class="form-control" id="inputheight" placeholder="ส่วนสูง">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="inputtel" class="col-sm-3 col-form-label">เบอร์โทร</label>
                             <div class="col-sm-5">
-                                <input type="text" class="form-control" id="inputtel" placeholder="เบอร์โทร">
+                                <input type="text" name="tel" class="form-control" id="inputtel" placeholder="เบอร์โทร">
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label for="inputFac" class="col-sm-3 col-form-label">คณะ</label>
+                            <label  class="col-sm-3 col-form-label">คณะ</label>
                             <div class="col-sm">
-                                <select class="col-sm-6 form-control" id="FormControlSelectFacul">
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
+                                <select id="Faculty" name="Faculty" class="col-sm-6 form-control Faculty">
+                                    <option>เลือกคณะ</option>
+                                    @foreach ($faculty_list as $key)
+                                        <option value="{{$key->Fac_id}}">{{$key->Faculty}}
+                                    @endforeach   
                                 </select>
                             </div>
                         </div> 
-
+                        
                         <div class="form-group row">
-                            <label for="inputmajor" class="col-sm-3 col-form-label">สาขา</label>
-                            <div class="col-sm">
-                                <select class="col-sm-6 form-control" id="FormControlSelectinputmajor">
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                </select>
-                            </div>
-                        </div>   
+                                <label  class="col-sm-3 col-form-label">สาขา</label>
+                                <div class="col-sm">
+                                    <select class="col-sm-6 form-control major" id="major" name="major">
+                                        <option>เลือกสาขา</option>
+                                    </select>
+                                </div>
+                            </div> 
+                            
+
                         
 
                         <div class="form-group ">
@@ -148,4 +146,34 @@
         </div>
     </div>
 </div>
+<script type="text/javascript">
+$(function(ready){
+        $('.Faculty').change(function(){
+                if($(this).val()!=''){
+                    var select=$(this).val();
+                    console.log(select);
+                    var _token=$('input[name="_token"]').val();
+                    $.ajax({
+                        url:"{{route('create.fetch')}}",
+                        method:"POST",
+                        data:{select:select,_token:_token},
+                        success:function(result){
+                            //จะทำไรต่อดีวะ
+                            $('.major').html(result);
+                        }
+                    })
+                }
+        });
+});
+</script>
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
 @endsection
