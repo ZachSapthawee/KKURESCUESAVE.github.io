@@ -14,24 +14,32 @@
 // Route::get('/', function () {
 //     return view('welcome');
 // });
+Auth::routes();
 
 Route::get('/', function () {
-    return view('pages.index');
+    return view('/auth.login');
 });
 
 Route::get('/index', function () {
     return view('pages.index');
 });
 Route::get('/show', function () {
-    return view('user.show');
+    return view('pages.show');
 });
 
-Auth::routes();
+
 
 
 // Route::get('/test', 'PersoanlController@index')->name('home');
 
-Route::get('createT','SelectFacultyController@index');
-Route::get('create','PersonalController@index');
-Route::resource('/user','PersonalController');
-Route::post('/create/fetch','SelectFacultyController@fetch')->name('create.fetch');
+Route::get('create','SelectFacultyController@index');
+Route::resource('/pages','PersonalController');
+Route::post('create/query','SelectFacultyController@fetch')->name('create.fetch');
+Route::get('/show','API\ShowPatientController@index');
+Route::get('/pages/{page}/edit','PersonalController@edit');
+Route::get('/delete','PersonalController@destroy');
+Route::post('/update','PersonalController@update');
+Route::get('/edit','SelectFacultyController@editshow');
+
+
+

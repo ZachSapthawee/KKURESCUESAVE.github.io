@@ -24,6 +24,13 @@ class CreatePersonalTablesTable extends Migration
             $table->string('weight');
             $table->string('height');
             $table->string('tel');
+            $table->string('Faculty');
+            $table->string('major');
+            $table->string('detailreport');
+            $table->string('historytaking');
+            $table->string('disease');
+            $table->string('drugallergy');
+
             $table->timestamps();
         });
     }

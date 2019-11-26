@@ -24,8 +24,11 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <style>
         html, body {
+                
                 background-color: #fff;
+                /* background: rgb(249,249,249); */
                 color: #636b6f;
+                /* color: #fff; */
                 font-family: 'Raleway', sans-serif,'Prompt', sans-serif;
                 font-weight: 100;
                 height: 100vh;
@@ -37,7 +40,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <a class="navbar-brand" href="{{ url('/index') }}">
                     KKU RESCUE
                     {{-- {{ config('app.name', 'KKU RESCUE') }} --}}
                 </a>
@@ -76,6 +79,7 @@
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
+                                        {{ csrf_field() }}
                                     </form>
                                 </div>
                             </li>

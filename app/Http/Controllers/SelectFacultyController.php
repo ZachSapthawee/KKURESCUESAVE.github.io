@@ -10,23 +10,31 @@ class SelectFacultyController extends Controller
     function index(){
         $faculty_list = DB::table('faculties')->get();
         // return response()->json($faculty_list);
-        return view('user.create')->with('faculty_list', $faculty_list);
+        return view('create')->with('faculty_list', $faculty_list);
     }
 
     function fetch(Request $request){
         $id=$request->get('select');
         $result=array();
         $query=DB::table('faculties')
-            ->join('majors','faculties.Fac_id','=','majors.majors_id')
+            ->join('majors','faculties.Fac_id','=','majors.major_id')
             ->select('majors.name')
             ->where('faculties.Fac_id',$id)
             ->groupBy('majors.name')
             ->get();
 
-            $output='<option value="">เลือกสาขาของผู้ป่วย</option>';
+            $output='<option value="">เลือกสาขา</option>';
                 foreach ($query as $row) {
                     $output.='<option value="'.$row->name.'">'.$row->name.'</option>';
                 }
                 echo $output;
     }
 }
+function editshow(){
+    $faculty_list = DB::table('faculties')->get();
+    // return response()->json($faculty_list);
+    dd($faculty_list);
+    return view('edit')->with('faculty_list', $faculty_list);
+}
+
+

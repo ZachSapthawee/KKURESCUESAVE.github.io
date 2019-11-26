@@ -9,6 +9,4 @@ class Personal_table extends Model
     protected $table = 'personal_tables';
     public $primarykey = 'id';
     public $timestamps = true;
-
-
 }
