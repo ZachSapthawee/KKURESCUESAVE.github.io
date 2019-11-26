@@ -38,7 +38,7 @@ Route::post('create/query','SelectFacultyController@fetch')->name('create.fetch'
 Route::get('/show','API\ShowPatientController@index');
 Route::get('/pages/{page}/edit','PersonalController@edit');
 Route::get('/delete','PersonalController@destroy');
-Route::post('/update','PersonalController@update');
+Route::post('update_personal','PersonalController@update_Personal');
 Route::get('/edit','SelectFacultyController@editshow');
 
 

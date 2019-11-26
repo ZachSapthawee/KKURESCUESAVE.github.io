@@ -108,10 +108,13 @@ class PersonalController extends Controller
     {
         // get the blog
         $personal_list = Personal_table::findOrFail($id);
-        // show the edit form and pass the blog
-        return View('edit')
-            ->with('personal_list', $personal_list);
-            dd($personal_list);
+        $faculty_list = DB::table('faculties')->get();
+        $major_list = DB::table('majors')->get();
+    //    dd($major_list);
+        $data=array('personal_list'=>$personal_list,
+        'faculties'=>$faculty_list,'majors'=>$major_list);
+        return View('edit',$data);
+            // dd($major_list);
     }
 
     /**
@@ -121,11 +124,12 @@ class PersonalController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update_Personal(Request $request)
     {
+       
     //     // return response()->json($request);
         $this->validate($request, [
-            'fristname' => 'required|string',
+            'firstname' => 'required|string',
             'lastname' => 'required|string',
             'nickname' => 'required|string',
             'age' => 'required|integer',
@@ -143,25 +147,28 @@ class PersonalController extends Controller
             'drugallergy' => 'required|string',
     ]);
     // store
-        $personal = Personal_table::find($id);
-        $personal->firstname = $request->input('fristname');
-        $personal->lastname = $request->input('lastname');
-        $personal->nickname = $request->input('nickname');
-        $personal->age = $request->input('age');
-        $personal->gender = $request->input('gender');
-        $personal->idcard = $request->input('idcard');
-        $personal->weight = $request->input('weight');
-        $personal->height = $request->input('height');
-        $personal->tel = $request->input('tel');
-        $personal->Faculty = $request->input('Faculty');
-        $personal->major = $request->input('major');
-        $personal->detailreport = $request->input('detailreport');
-        $personal->historytaking = $request->input('historytaking');
-        $personal->disease = $request->input('disease');
-        $personal->drugallergy = $request->input('drugallergy');
+        $id = $request->input('id');
+        $data = array('firstname' => $request->input('firstname'),
+        'lastname' => $request->input('lastname'),
+        'nickname' => $request->input('nickname'),
+        'age' => $request->input('age'),
+        'gender' => $request->input('gender'),
+        'idcard' => $request->input('idcard'),
+        'weight' => $request->input('weight'),
+        'height' => $request->input('height'),
+        'tel' => $request->input('tel'),
+        'Faculty' => $request->input('Faculty'),
+        'major' => $request->input('major'),
+        'detailreport' => $request->input('detailreport'),
+        'historytaking' => $request->input('historytaking'),
+        'disease' => $request->input('disease'),
+        'drugallergy' => $request->input('drugallergy'));
+        // dd($data);       
+         DB::table('personal_tables')->where('id',$id)
+        ->update($data);
+        
     //     // $personal->id_user = $request->id_user;
-        dd($personal);
-        $personal->save();
+        
 
     //     // redirect
         return redirect('/show')->with('success', 'Successfully updated');

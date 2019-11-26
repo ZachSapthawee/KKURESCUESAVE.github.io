@@ -18,10 +18,10 @@
                             <br>
                             {{-- {{action('/update','PersonalController@update',$id)}} --}}
                             {{-- @foreach($personal_list as $key => $value) --}}
-                            <form action="pages" method="POST">
+                            <form action="/update_personal" method="POST" >
                                 {{-- @endforeach  --}}
                                 <!-- if there are creation errors, they will show here -->
-                                @if($errors->all())
+                                {{-- @if($errors->all())
                                 <ul class="has-error">
                                 @foreach ($errors->all() as $message)
                                     <li>{{ $message }}</li>
@@ -29,7 +29,10 @@
                                 </ul>
                                 @endif
                                 {{csrf_field()}}
-                                {{ method_field('PUT') }}
+                                {{ method_field('PUT') }} --}}
+
+                                @csrf
+
             
                                 <div class="form-group row {{ $errors->has('fristname') ? ' has-error' : '' }}" >
                                     <label  class="col-sm-3 col-form-label d-flex justify-content-end">ชื่อ</label>
@@ -133,23 +136,38 @@
                                         </div>
             
             
-                                {{-- <div class="form-group row">
+                                <div class="form-group row">
                                     <label  class="col-sm-3 col-form-label d-flex justify-content-end">คณะ</label>
                                     <div class="col-sm ">
                                         <select id="Faculty" name="Faculty" class="col-sm-6 form-control Faculty">
                                             <option>เลือกคณะ</option>
-                                            @foreach ($faculty_list as $key)
-                                                <option value="{{$key->Fac_id}}">{{$key->Faculty}}
+                                            @foreach ($faculties as $key)
+                                                @if($key->Fac_id == $personal_list->Faculty)
+                                                <option value="{{$key->Fac_id}}" selected>{{$key->Faculty}}</option>
+                                                @else 
+                                                <option value="{{$key->Fac_id}}" >{{$key->Faculty}}</option>
+                                                @endif
                                             @endforeach   
+
+                                           
+                                            
+
                                         </select>
                                     </div>
-                                </div>  --}}
+                                </div> 
                                 
                                     <div class="form-group row">
                                         <label  class="col-sm-3 col-form-label d-flex justify-content-end">สาขา</label>
                                         <div class="col-sm">
                                             <select class="col-sm-6 form-control major" id="major" name="major">
                                                 <option>เลือกสาขา</option>
+                                                @foreach ($majors as $key)
+                                                @if($key->name == $personal_list->major)
+                                                <option value="{{$key->major_id}}" selected>{{$key->name}}</option>
+                                                @else 
+                                                <option value="{{$key->major_id}}" >{{$key->name}}</option>
+                                                @endif
+                                            @endforeach   
                                             </select>
                                         </div>
                                     </div> 
@@ -161,7 +179,7 @@
                                 <div class="form-group ">
                                     <h2>อาการ/เหตุการณ์ที่ได้รับแจ้ง</h2>
                                     <div class="col-sm d-flex justify-content-center">
-                                        <textarea class="form-control col-sm-10" name="textareadetail" id="FormControlTextareadetail" rows="5" value="{{$personal_list->textareadetail}}" required autofocus></textarea>
+                                        <textarea class="form-control col-sm-10" name="detailreport" id="FormControlTextareadetail" rows="5" value="{{$personal_list->textareadetail}}" required autofocus><?=$personal_list['detailreport']?></textarea>
                                     </div>
                                 </div>
             
@@ -172,7 +190,7 @@
                                         <h2>ซักประวัติผู้ป่วย SAMPLE</h2>
                                         <div class="col-sm">
                                             <div class="col-sm d-flex justify-content-center">
-                                                    <textarea class="form-control col-sm-10" name="historytaking" id="FormControlTextarea1" rows="5" value="{{$personal_list->historytaking}}" required autofocus></textarea>
+                                                    <textarea class="form-control col-sm-10" name="historytaking" id="FormControlTextarea1" rows="5" value="{{$personal_list->historytaking}}" required autofocus><?=$personal_list['historytaking']?></textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -198,7 +216,7 @@
                                                 @endif --}}
                                             </div>
                                     </div>
-                                    {{-- <input type="hidden" name="_method" value="PATCH"> --}}
+                                    <input type="hidden" name="id" value="{{$personal_list->id}}" >
                                     <button type="submit" class="btn btn-success btn-lg float-right mt-5">Update</button>
                         </form>
                      
