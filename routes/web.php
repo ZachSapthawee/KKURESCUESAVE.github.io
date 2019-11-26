@@ -43,3 +43,7 @@ Route::get('/edit','SelectFacultyController@editshow');
 
 
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

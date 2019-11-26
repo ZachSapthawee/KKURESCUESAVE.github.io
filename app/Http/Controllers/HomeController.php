@@ -4,9 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\faculties;
-use DB;
-
 class HomeController extends Controller
 {
     /**
@@ -26,20 +23,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('/index');
+        return view('home');
     }
-
-    public function FormFacListShow()
-    {
-        $faculty_list = DB::table('faculties')->get()
-            ->groupBy('Faculty')
-            ->get();
-        return view('create')->with('faculty_list', $faculty_list);
-
-        // $faculty = Request::old('faculties');
-        // $faculty = faculties::all();
-        // $selectedID = 2;  
-        // return view('user.create', compact( 'Faculty'));
-    }
-
 }

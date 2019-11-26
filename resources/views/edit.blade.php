@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+<script rel="javascript" type="text/javascript" href="js/jquery-1.11.3.min.js"></script>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> 
+
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-9">
@@ -38,11 +41,11 @@
                                     <label  class="col-sm-3 col-form-label d-flex justify-content-end">ชื่อ</label>
                                         <div class="col-sm-5 col-md-6">
                                         <input type="text" name="firstname" class="form-control" id="firstname" placeholder="ชื่อ" value="{{$personal_list->firstname}}" required autofocus>
-                                            {{-- @if ($errors->has('firstname'))
+                                            @if ($errors->has('firstname'))
                                                 <span class="help-block">
                                                     <strong>{{ $errors->first('firstname') }}</strong>
                                                 </span>
-                                            @endif --}}
+                                            @endif
                                         </div>
                                 </div>
             
@@ -50,11 +53,11 @@
                                     <label  class="col-sm-3 col-form-label d-flex justify-content-end">นามสกุล</label>
                                         <div class="col-sm-5 col-md-6 ">
                                         <input type="text" name="lastname" class="form-control" id="lastname" placeholder="นามสกุล" value="{{$personal_list->lastname}}" required autofocus>
-                                            {{-- @if ($errors->has('lastname'))
+                                            @if ($errors->has('lastname'))
                                                 <span class="help-block">
                                                     <strong>{{ $errors->first('lastname') }}</strong>
                                                 </span>
-                                        @endif --}}
+                                        @endif
                                     </div>
                                 </div>
             
@@ -62,22 +65,22 @@
                                         <label  class="col-sm-3 col-form-label d-flex justify-content-end">ชื่อเล่น</label>
                                             <div class="col-sm-5 col-md-6 ">
                                             <input type="text" name="nickname" class="form-control" id="nickname" placeholder="ชื่อเล่น" value="{{$personal_list->nickname}}" required autofocus>
-                                                {{-- @if ($errors->has('nickname'))
+                                                @if ($errors->has('nickname'))
                                                     <span class="help-block">
                                                         <strong>{{ $errors->first('nickname') }}</strong>
                                                     </span>
-                                                @endif --}}
+                                                @endif
                                             </div>
             
                                     </div><div class="form-group row">
                                             <label  class="col-sm-3 col-form-label d-flex justify-content-end">อายุ</label>
                                                 <div class="col-sm-5 col-md-6 ">
                                                 <input type="text" name="age" class="form-control" id="age" placeholder="อายุ" value="{{$personal_list->age}}" required autofocus>
-                                                    {{-- @if ($errors->has('age'))
+                                                    @if ($errors->has('age'))
                                                         <span class="help-block">
                                                             <strong>{{ $errors->first('age') }}</strong>
                                                         </span>
-                                                    @endif --}}
+                                                    @endif
                                             </div>
                                         </div>
             
@@ -95,11 +98,11 @@
                                         <label  class="col-sm-3 col-form-label d-flex justify-content-end">เลขบัตรประชาชน</label>
                                             <div class="col-sm-5 col-md-6 ">
                                             <input type="text" name="idcard" class="form-control" id="idcard" placeholder="เลขบัตรประชาชน" value="{{$personal_list->idcard}}" required autofocus>
-                                                {{-- @if ($errors->has('idcard'))
+                                                @if ($errors->has('idcard'))
                                                     <span class="help-block">
                                                         <strong>{{ $errors->first('idcard') }}</strong>
                                                     </span>
-                                                @endif --}}
+                                                @endif
                                             </div>
                                     </div>
             
@@ -107,31 +110,31 @@
                                         <label for="inputweight" class="col-sm-3 col-form-label d-flex justify-content-end">น้ำหนัก</label>
                                         <div class="col-sm-2 col-md-2 ">
                                             <input type="text" name="weight" class="form-control " id="inputweight" placeholder="น้ำหนัก" value="{{$personal_list->weight}}" required autofocus>
-                                            {{-- @if ($errors->has('weight'))
+                                            @if ($errors->has('weight'))
                                                     <span class="help-block">
                                                         <strong>{{ $errors->first('weight') }}</strong>
                                                     </span>
-                                                @endif --}}
+                                                @endif
                                         </div>
                                         <label for="inputheight" class="col-sm-2 col-form-label d-flex justify-content-start">ส่วนสูง</label>
                                         <div class="col-sm-2 col-md-2 ">
                                             <input type="text" name="height" class="form-control " id="inputheight" placeholder="ส่วนสูง" value="{{$personal_list->height}}" required autofocus>
-                                            {{-- @if ($errors->has('height'))
+                                            @if ($errors->has('height'))
                                                     <span class="help-block">
                                                         <strong>{{ $errors->first('height') }}</strong>
                                                     </span>
-                                                @endif --}}
+                                                @endif
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                             <label for="inputtel" class="col-sm-3 col-form-label d-flex justify-content-end">เบอร์โทร</label>
                                             <div class="col-sm">
                                                 <input type="text" name="tel" class="col-sm-6 form-control d-flex justify-content-end" id="inputtel" placeholder="เบอร์โทร"  value="{{$personal_list->tel}}" required autofocus>
-                                                {{-- @if ($errors->has('tel'))
+                                                @if ($errors->has('tel'))
                                                     <span class="help-block">
                                                         <strong>{{ $errors->first('tel') }}</strong>
                                                     </span>
-                                                @endif --}}
+                                                @endif
                                             </div>
                                         </div>
             
@@ -198,22 +201,22 @@
                                             <label  class="col-sm-3 col-form-label d-flex justify-content-end">โรคประจำตัว</label>
                                             <div class="col-sm-5 col-md-7 ">
                                                 <input type="text" name="disease" class="form-control" id="disease" placeholder="โรคประจำตัว" value="{{$personal_list->disease}}" required autofocus>
-                                                {{-- @if ($errors->has('disease'))
+                                                @if ($errors->has('disease'))
                                                     <span class="help-block">
                                                         <strong>{{ $errors->first('disease') }}</strong>
                                                     </span>
-                                                @endif --}}
+                                                @endif
                                             </div>
                                     </div>
                                     <div class="form-group row">
                                             <label  class="col-sm-3 col-form-label d-flex justify-content-end">ข้อมูลการแพ้ยา</label>
                                             <div class="col-sm-5 col-md-7 ">
                                                 <input type="text" name="drugallergy" class="form-control" id="drugallergy" placeholder="ข้อมูลการแพ้ยา" value="{{$personal_list->drugallergy}}" required autofocus>
-                                                {{-- @if ($errors->has('drugallergy'))
+                                                @if ($errors->has('drugallergy'))
                                                     <span class="help-block">
                                                         <strong>{{ $errors->first('drugallergy') }}</strong>
                                                     </span>
-                                                @endif --}}
+                                                @endif
                                             </div>
                                     </div>
                                     <input type="hidden" name="id" value="{{$personal_list->id}}" >
@@ -254,7 +257,9 @@ $(function(ready){
         </ul>
     </div>
 @endif
-
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 @endsection
 
 
