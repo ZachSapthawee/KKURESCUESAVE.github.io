@@ -22,32 +22,32 @@
                         <br>
                         <form action="{{url('/pages')}}" method="POST">
                             {{csrf_field()}}
-                            <div class="form-group row">
-                                <label  class="col-sm-3 col-form-label d-flex justify-content-end">ชื่อ</label>
+                            <div class="form-group row ">
+                                <label class="col-sm-3 col-form-label textright hid ">ชื่อ</label>
                                 <div class="col-sm-5 col-md-6 ">
                                     <input type="text" name="firstname" class="form-control" id="firstname" placeholder="ชื่อ">
                                 </div>
                             </div>
-                            <div class="form-group row">
-                                <label  class="col-sm-3 col-form-label d-flex justify-content-end">นามสกุล</label>
+                            <div class="form-group row ">
+                                <label  class="col-sm-3 col-form-label textright hid ">นามสกุล</label>
                                 <div class="col-sm-5 col-md-6 ">
                                     <input type="text" name="lastname" class="form-control" id="lastname" placeholder="นามสกุล">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="inputnickname" class="col-sm-3 col-form-label d-flex justify-content-end">ชื่อเล่น</label>
+                                <label for="inputnickname" class="col-sm-3 col-form-label textright hid ">ชื่อเล่น</label>
                                 <div class="col-sm-5 col-md-6 ">
                                     <input type="text" name="nickname" class="form-control" id="nickname" placeholder="ชื่อเล่น">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="inputage" class="col-sm-3 col-form-label d-flex justify-content-end">อายุ</label>
+                                <label  id="textname" for="inputage" class="col-sm-3 col-form-label textright hid ">อายุ</label>
                                 <div class="col-sm-5 col-md-6 ">
                                     <input type="text" name="age" class="form-control" id="age" placeholder="อายุ">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                    <label for="FormControlSelectgender" class="col-sm-3 col-form-label d-flex justify-content-end">เพศ</label>
+                                    <label  id="textname" for="FormControlSelectgender" class="col-sm-3 col-form-label textright hid ">เพศ</label>
                                     <div class="col-sm-5">
                                         <select class="col-sm-8 form-control" name="gender" id="FormControlSelectgender">
                                             <option>ชาย</option>
@@ -56,30 +56,30 @@
                                     </div> 
                             </div>
                             <div class="form-group row">
-                                <label for="inputidcard" class="col-sm-3 col-form-label d-flex justify-content-end">เลขบัตรประชาชน</label>
+                                <label for="inputidcard" class="col-sm-3 col-form-label textright hid ">เลขบัตรประชาชน</label>
                                 <div class="col-sm-5 col-md-6 ">
                                     <input type="text" name="idcard" class="form-control" id="inputidcard" placeholder="เลขบัตรประชาชน">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="inputweight" class="col-sm-3 col-form-label d-flex justify-content-end">น้ำหนัก</label>
-                                <div class="col-sm-2 col-md-2 ">
+                                <label for="inputweight" class="col-sm-3 col-form-label textright hid ">น้ำหนัก</label>
+                                <div class="col-sm-2 col-md-2 mb-3">
                                     <input type="text" name="weight" class="form-control " id="inputweight" placeholder="น้ำหนัก">
                                 </div>
-                                <label for="inputheight" class="col-sm-2 col-form-label d-flex justify-content-start">ส่วนสูง</label>
+                                <label for="inputheight" class="col-sm-2 col-form-label  hid " ;>ส่วนสูง</label>
                                 <div class="col-sm-2 col-md-2 ">
                                     <input type="text" name="height" class="form-control " id="inputheight" placeholder="ส่วนสูง">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="inputtel" class="col-sm-3 col-form-label d-flex justify-content-end">เบอร์โทร</label>
+                                <label for="inputtel" class="col-sm-3 col-form-label textright hid ">เบอร์โทร</label>
                                 <div class="col-sm">
                                     <input type="text" name="tel" class="col-sm-6 form-control d-flex justify-content-end" id="inputtel" placeholder="เบอร์โทร">
                                 </div>
                             </div>
 
                             <div class="form-group row">
-                                <label  class="col-sm-3 col-form-label d-flex justify-content-end">คณะ</label>
+                                <label  class="col-sm-3 col-form-label textright hid ">คณะ</label>
                                 <div class="col-sm ">
                                     <select id="Faculty" name="Faculty" class="col-sm-6 form-control Faculty">
                                         <option>เลือกคณะ</option>
@@ -91,7 +91,7 @@
                             </div> 
                             
                             <div class="form-group row">
-                                    <label  class="col-sm-3 col-form-label d-flex justify-content-end">สาขา</label>
+                                    <label  class="col-sm-3 col-form-label textright hid ">สาขา</label>
                                     <div class="col-sm">
                                         <select class="col-sm-6 form-control major" id="major" name="major">
                                             <option>เลือกสาขา</option>
@@ -121,7 +121,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                        <label  class="col-sm-3 col-form-label d-flex justify-content-end">โรคประจำตัว</label>
+                                        <label  class="col-sm-2 col-form-label  hid">โรคประจำตัว</label>
                                         <div class="col-sm-5 col-md-7 ">
                                             <input type="text" name="disease" class="form-control" id="disease" placeholder="โรคประจำตัว"  required autofocus>
                                             @if ($errors->has('disease'))
@@ -132,7 +132,7 @@
                                         </div>
                                 </div>
                                 <div class="form-group row">
-                                        <label  class="col-sm-3 col-form-label d-flex justify-content-end">ข้อมูลการแพ้ยา</label>
+                                        <label  class="col-sm-2 col-form-label  hid">ข้อมูลการแพ้ยา</label>
                                         <div class="col-sm-5 col-md-7 ">
                                             <input type="text" name="drugallergy" class="form-control" id="drugallergy" placeholder="ข้อมูลการแพ้ยา"  required autofocus>
                                             @if ($errors->has('drugallergy'))

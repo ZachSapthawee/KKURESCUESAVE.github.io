@@ -23,28 +23,43 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <style>
             html, body {
-                    /* background-color: #fff; */
+                    /* background-color: #fff ; */
+                    /* background-color: aqua!important; */
                     background: rgb(249,249,249);
                     color: #636b6f;
                     font-family: 'Raleway', sans-serif,'Prompt', sans-serif;
                     font-weight: 100;
                     height: 100vh;
                     margin: 0;
+                    
                 }
-            #backgraound{
-                    /* background-image: url('/img/web-design-background.png) */
-                    /* background: rgb(249,249,249); */
-                    background-repeat: no-repeat;
-                    background-size: auto;
-                    border: 2px solid black;
+            .colornavnavy{
+                background-color: #29347A;
+                
             }
-        </style>
+            .colornavnavy  a{
+                color: white;
+            }
+            .textblack{
+                color: black;
+            }
+            @media screen and (max-width: 575px){
+                .hid{
+                    display: none;
+                }
+            }
+            @media screen and (min-width: 575px){
+                .textright{
+                    text-align: right;
+                }
+            }
+    </style>
 </head>
 <body >
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
+        <nav class="navbar navbar-expand-md  navbar-laravel colornavnavy">
             <div class="container" >
-                <a class="navbar-brand" href="{{ url('/index') }}">
+                <a class="navbar-brand" href="{{ url('/welcome') }}">
                     KKU RESCUE
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">

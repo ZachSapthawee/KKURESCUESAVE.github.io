@@ -26,7 +26,9 @@ Route::get('/index', function () {
 Route::get('/show', function () {
     return view('pages.show');
 });
-
+Route::get('/welcome', function () {
+    return view('welcome');
+});
 
 
 

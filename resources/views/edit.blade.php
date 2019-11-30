@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+
+
+
 <script rel="javascript" type="text/javascript" href="js/jquery-1.11.3.min.js"></script>
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> 
 
@@ -220,6 +223,7 @@
                                             </div>
                                     </div>
                                     <input type="hidden" name="id" value="{{$personal_list->id}}" >
+                                    <button type="button"  value="print" onclick="window.print()" class="btn btn-primary float-right btn-lg  mt-5">Print</button>
                                     <button type="submit" class="btn btn-success btn-lg float-right mt-5">Update</button>
                         </form>
                      
