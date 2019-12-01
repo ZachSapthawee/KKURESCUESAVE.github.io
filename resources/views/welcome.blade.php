@@ -79,15 +79,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">หน้าแรก</a>
-                    <a href="#">บันทึกข้อมูลผู้ป่วย</a>
-                    <a href="https://laravel-news.com">ข้อมูลผู้ป่วย</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                    KKURESCUE
                 </div>
             </div>
         </div>

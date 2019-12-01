@@ -59,9 +59,16 @@
     <div id="app">
         <nav class="navbar navbar-expand-md  navbar-laravel colornavnavy">
             <div class="container" >
+                @guest
                 <a class="navbar-brand" href="{{ url('/welcome') }}">
                     KKU RESCUE
                 </a>
+                @else
+                <a class="navbar-brand" href="{{ url('/index') }}">
+                    KKU RESCUE
+                </a>
+                @endguest
+                
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
