@@ -14,7 +14,7 @@ class SelectFacultyController extends Controller
     }
 
     function fetch(Request $request){
-        $id=$request->get('select');
+        $id = $request->get('select');
         $result=array();
         $query=DB::table('faculties')
             ->join('majors','faculties.Fac_id','=','majors.major_id')
@@ -27,13 +27,11 @@ class SelectFacultyController extends Controller
                 foreach ($query as $row) {
                     $output.='<option value="'.$row->name.'">'.$row->name.'</option>';
                 }
-                echo $output;
+            echo $output;
     }
 }
 function editshow(){
     $faculty_list = DB::table('faculties')->get();
-    // return response()->json($faculty_list);
-    dd($faculty_list);
     return view('edit')->with('faculty_list', $faculty_list);
 }
 

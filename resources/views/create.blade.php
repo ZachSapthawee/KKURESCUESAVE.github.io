@@ -7,11 +7,11 @@
 
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-9">
+            <div class="col-md-12">
                 <div class="card">
                     <!-- <div class="card-header">บันทึกข้อมูลผู้ป่วย</div> -->
 
-                    <div class="card-body">
+                    <div class="card-body p-5">
                          @if (session('status'))
                             <div class="alert alert-success" role="alert">
                                 {{ session('status') }}
@@ -49,7 +49,8 @@
                             <div class="form-group row">
                                     <label  id="textname" for="FormControlSelectgender" class="col-sm-3 col-form-label textright hid ">เพศ</label>
                                     <div class="col-sm-5">
-                                        <select class="col-sm-8 form-control" name="gender" id="FormControlSelectgender">
+                                        <select class="col-sm-8 form-control" name="gender" id="FormControlSelectgender" placeholder="เลือกเพส" require> 
+                                            <option>เลือกเพศ</option>
                                             <option>ชาย</option>
                                             <option>หญิง</option>
                                         </select>
@@ -66,7 +67,7 @@
                                 <div class="col-sm-2 col-md-2 mb-3">
                                     <input type="text" name="weight" class="form-control " id="inputweight" placeholder="น้ำหนัก">
                                 </div>
-                                <label for="inputheight" class="col-sm-2 col-form-label  hid " ;>ส่วนสูง</label>
+                                <label for="inputheight" class="col-sm-2 col-form-label  hid" style ="text-align: end;"> ส่วนสูง</label>
                                 <div class="col-sm-2 col-md-2 ">
                                     <input type="text" name="height" class="form-control " id="inputheight" placeholder="ส่วนสูง">
                                 </div>
@@ -91,13 +92,13 @@
                             </div> 
                             
                             <div class="form-group row">
-                                    <label  class="col-sm-3 col-form-label textright hid ">สาขา</label>
-                                    <div class="col-sm">
-                                        <select class="col-sm-6 form-control major" id="major" name="major">
-                                            <option>เลือกสาขา</option>
-                                        </select>
-                                    </div>
-                                </div> 
+                                <label  class="col-sm-3 col-form-label textright hid ">สาขา</label>
+                                <div class="col-sm">
+                                    <select class="col-sm-6 form-control major" id="Major" name="Major">
+                                        <option>เลือกสาขา</option>
+                                    </select>
+                                </div>
+                            </div> 
                                 
                                 <br>
                                 <br>
@@ -106,7 +107,7 @@
                             <div class="form-group ">
                                 <h2>อาการ/เหตุการณ์ที่ได้รับแจ้ง</h2>
                                 <div class="col-sm d-flex justify-content-center">
-                                    <textarea class="form-control col-sm-10" name="detailreport" id="FormControlTextareadetail" rows="5"></textarea>
+                                    <textarea class="form-control col-sm-6" name="detailreport" id="FormControlTextareadetail" rows="5"></textarea>
                                 </div>
                             </div>
                             
@@ -116,32 +117,33 @@
                                     <h2>ซักประวัติผู้ป่วย SAMPLE</h2>
                                     <div class="col-sm">
                                         <div class="col-sm d-flex justify-content-center">
-                                                <textarea class="form-control col-sm-10" name="historytaking" id="historytaking" rows="5"></textarea>
+                                                <textarea class="form-control col-sm-6" name="historytaking" id="historytaking" rows="5"></textarea>
                                         </div>
                                     </div>
                                 </div>
+
                                 <div class="form-group row">
-                                        <label  class="col-sm-2 col-form-label  hid">โรคประจำตัว</label>
-                                        <div class="col-sm-5 col-md-7 ">
-                                            <input type="text" name="disease" class="form-control" id="disease" placeholder="โรคประจำตัว"  required autofocus>
-                                            @if ($errors->has('disease'))
-                                                <span class="help-block">
-                                                    <strong>{{ $errors->first('disease') }}</strong>
-                                                </span>
-                                            @endif
-                                        </div>
-                                </div>
+                                    <label  class="col-sm-3 col-form-label textright hid ">โรคประจำตัว</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" name="disease" class="form-control" id="disease" placeholder="โรคประจำตัว"  required autofocus>
+                                        @if ($errors->has('disease'))
+                                            <span class="help-block">
+                                                <strong>{{ $errors->first('disease') }}</strong>
+                                            </span>
+                                        @endif
+                                    </div>
+                                </div> 
                                 <div class="form-group row">
-                                        <label  class="col-sm-2 col-form-label  hid">ข้อมูลการแพ้ยา</label>
-                                        <div class="col-sm-5 col-md-7 ">
+                                    <label  class="col-sm-3 col-form-label textright hid ">ข้อมูลการแพ้ยา</label>
+                                    <div class="col-sm-6">
                                             <input type="text" name="drugallergy" class="form-control" id="drugallergy" placeholder="ข้อมูลการแพ้ยา"  required autofocus>
                                             @if ($errors->has('drugallergy'))
                                                 <span class="help-block">
                                                     <strong>{{ $errors->first('drugallergy') }}</strong>
                                                 </span>
                                             @endif
-                                        </div>
-                                </div>
+                                    </div>
+                                </div> 
 
 
                             <button type="submit" class="btn btn-success btn-lg float-right mt-5">บันทึก</button>
@@ -169,6 +171,7 @@ $(function(ready){
                     })
                 }
         });
+
 });
 </script>
 @if ($errors->any())
