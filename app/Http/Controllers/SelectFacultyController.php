@@ -9,7 +9,6 @@ class SelectFacultyController extends Controller
 {
     function index(){
         $faculty_list = DB::table('faculties')->get();
-        // return response()->json($faculty_list);
         return view('create')->with('faculty_list', $faculty_list);
     }
 
